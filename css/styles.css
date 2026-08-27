@@ -7,17 +7,20 @@
   --color-primario: #f5df4e;
   --color-secundario: #17181a;
   --color-alterno: #f8f9fa;
-
   --color-blanco: #ffffff;
   --color-gris: #2e2e2e;
-
   --color-texto-suave: #6c757d;
-/*Modo oscuro*/
+
   --color-fondo: #121317;
   --color-superficie: #22252b;
   --color-texto: #e8e8e6;
   --color-muteado: #a3a39e;
   --color-alterno-oscuro: #1f2024;
+
+  --color-error: #c0392b;
+  --color-exito: #1e8449;
+  --color-error-o: #ff8a7a;
+  --color-exito-o: #7ddc9a;
 }
 
 * {
@@ -234,6 +237,16 @@ a {
   padding-bottom: 3px;
 }
 
+.saludo-visitante {
+  font-size: 1.5rem;
+  font-weight:600 ;
+  display: none;      /* oculto hasta que JS confirme que hay nombre */
+}
+
+.saludo-visitante.visible {
+  display: block;
+}
+
 h1 {
   font-family: "Inter", sans-serif;
   font-size: calc(1.425rem + 2.1vw);
@@ -348,6 +361,29 @@ p {
 .contacto-info .contacto-linea {
   font-family: "Poppins", sans-serif;
   font-size: 1.1rem;
+}
+
+.mensaje-formulario {
+  font-size: .89rem;
+  padding: .5rem 0;
+  display: none;
+}
+.mensaje-formulario.error {
+  display: block;
+  color: var(--color-error);
+}
+.mensaje-formulario.exito {
+  display: block;
+  color: var(--color-exito);
+}
+
+
+body.modo-oscuro .mensaje-formulario.error {
+  color:var(--color-error-o);
+}
+
+body.modo-oscuro .mensaje-formulario.exito {
+  color: var(--color-exito-o);
 }
 
 .btn-negro {

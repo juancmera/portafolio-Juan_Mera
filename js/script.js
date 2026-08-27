@@ -1,6 +1,5 @@
 /* Modo oscuro */
 function inicializarModoOscuro() {
-
   const preferenciaGuardado = localStorage.getItem("modoOscuro");
   const btnModoOscuro = document.getElementById("btn-modo-oscuro");
 
@@ -38,6 +37,7 @@ function actualizarIconoModoOscuro(activo) {
   }
 }
 
+/*Menu Dinámico */
 function inicializarMenuActivo() {
   const enlaces = document.querySelectorAll(".ul-menu a");
   const secciones = document.querySelectorAll("main section[id]");
@@ -64,7 +64,7 @@ function inicializarMenuActivo() {
     enlaces.forEach((enlace) => {
       enlace.classList.toggle(
         "activo",
-        enlace.getAttribute("href") === `#${idActiva}`
+        enlace.getAttribute("href") === `#${idActiva}`,
       );
     });
   }
@@ -73,10 +73,80 @@ function inicializarMenuActivo() {
   marcarSeccionActiva(); // marca la correcta al cargar la página
 }
 
+/* Formulario, validación y envío sumulado */
+function esCorreoValido(correo) {
+  const patronCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return patronCorreo.test(correo);
+}
+function validarFormulario(evento) {
+  // evita que la página se recargue al enviar
+  evento.preventDefault();
+
+  const nombre = document.getElementById("nombre").value.trim();
+  const correo = document.getElementById("correo").value.trim();
+  const mensaje = document.getElementById("mensaje").value.trim();
+
+  if (nombre === "" || correo === "" || mensaje === "") {
+    mostrarMensajeFormulario(
+      "Por favor completa todos los campos antes de enviar.",
+      "error",
+    );
+  } else if (!esCorreoValido(correo)) {
+    mostrarMensajeFormulario("El correo ingresado no tiene un formato válido. Ejemplo: nombre@dominio.com", "error");
+  } else { 
+    guardarMensaje(nombre, correo, mensaje);
+    usuarioVisitante();
+    mostrarMensajeFormulario(
+      "Gracias, " + nombre + "! tu mensaje fue enviado correctamente",
+      "exito",
+    );
+    document.getElementById("formulario-contacto").reset();
+  }
+}
+
+function mostrarMensajeFormulario(texto, tipo) {
+  const contenedor = document.getElementById("mensaje-formulario");
+  contenedor.textContent = texto;
+  contenedor.classList.remove("error", "exito");
+  contenedor.classList.add(tipo)
+}
+
+function guardarMensaje(nombre, correo, mensaje) {
+  const mensajeGuardados = JSON.parse(localStorage.getItem("mensajeContacto")) || [];
+
+  mensajeGuardados.push({
+    nombre: nombre,
+    correo: correo,
+    mensaje: mensaje,
+    fecha: new Date().toLocaleString()
+  });
+
+  localStorage.setItem("mensajeContacto", JSON.stringify(mensajeGuardados));
+  localStorage.setItem("nombreVisitante", nombre);
+  console.log("Nombre form: ", nombre)
+}
+
+/*Usuario visitante */
+function usuarioVisitante() {
+  const nombreGuardado = localStorage.getItem("nombreVisitante");
+  const saludo = document.getElementById("saludo-visitante");
+
+  if ( nombreGuardado !== null && nombreGuardado !== "" ) {
+    saludo.textContent = "¡Hola, " + nombreGuardado + "!";
+    saludo.classList.add("visible")
+  } 
+}
+
 // INICIO — se ejecuta cuando el HTML ya está listo
 document.addEventListener("DOMContentLoaded", () => {
   inicializarModoOscuro();
   inicializarMenuActivo();
+  usuarioVisitante();
+
   const botonModoOscuro = document.getElementById("btn-modo-oscuro");
   botonModoOscuro.addEventListener("click", alternarModoOscuro);
+
+  // Formulario de contacto
+  const formularioContacto = document.getElementById("formulario-contacto");
+  formularioContacto.addEventListener("submit", validarFormulario);
 });

@@ -38,8 +38,10 @@
     <section id="inicio" class="seccion bg-primario">
       <div class="portada-cuadricula">
         <div class="portada-texto">
-          <h1>Hola, soy Desarrollo Web y Analista TI</h1>
-          <h2 class="titulo">Juan Mera</h2>
+          <p id="saludo-visitante" class="saludo-visitante"></p>
+          <h1>Soy Desarrollador Web y Analista TI</h1>
+          <!-- <h1>Hola, soy Desarrollo Web y Analista TI</h1>
+          <h2 class="titulo">Juan Mera</h2>-->
           <div class="espacio-enlaces">
             <a href="#proyectos" class="btn-negro">Ver proyectos</a>
             <a href="#contactos" class="btn-transparente">Contáctame <i class="fas fa-arrow-down"></i></a>
@@ -69,7 +71,7 @@
             institucionales.
           </p>
           <p class="salto-linea">
-            Actualmente estudio Ingeniería en Sistemas Inteligentes en la
+            Actualmente estudio Ingeniería de Sistemas Inteligentes en la
             Universidad <strong>Ecotec</strong>, integrando mi formación
             académica con la experiencia práctica para desarrollar soluciones
             orientadas a necesidades reales.
@@ -205,13 +207,16 @@
           </p>
         </div>
         <div class="contacto-formulario">
-          <form action="#">
+          <form id="formulario-contacto" action="#" novalidate>
             <label for="nombre" class="texto-izquierda">Nombre:</label>
-            <input type="text" id="nombre" />
+            <input type="text" id="nombre" placeholder="Ingrese su nombre" />
             <label for="correo">Correo:</label>
-            <input type="email" id="correo" />
+            <input type="email" id="correo" placeholder="Ingrese su email"/>
             <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje"></textarea>
+            <textarea id="mensaje" placeholder="Ingrese un mensaje"></textarea>
+
+            <p id="mensaje-formulario" class="mensaje-formulario"></p>
+
             <button class="btn-negro" type="submit">Enviar mensaje</button>
           </form>
         </div>
