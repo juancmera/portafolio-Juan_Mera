@@ -5,8 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portafolio Juan Cristóbal Mera Vásquez</title>
-  <meta name="description" content="Portafolio personal de Juan Cristóbal Mera Vásquez, Analista de TI y Desarrollador Full-Stack.">
-  <link rel="stylesheet" href="css/styles.css">
+  <meta name="description"
+    content="Portafolio personal de Juan Cristóbal Mera Vásquez, Analista de TI y Desarrollador Full-Stack." />
+  <link rel="stylesheet" href="css/styles.css" />
   <!-- Font icons  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
     integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
@@ -16,7 +17,6 @@
 <body>
   <!-- HEADER/NAV  -->
   <header class="bg-primario">
-
     <nav class="nav">
       <ul class="ul-menu">
         <li><a href="#inicio">Inicio</a></li>
@@ -25,8 +25,12 @@
         <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#contactos">Contactos</a></li>
       </ul>
-    </nav>
+      <button id="btn-modo-oscuro" class="btn-modo-oscuro" type="button" aria-label="cambiar a modo oscuro"
+        aria-pressed="false">
+        <i class="fa fa-moon"></i>
+      </button>
 
+    </nav>
   </header>
 
   <main>
@@ -39,34 +43,43 @@
           <div class="espacio-enlaces">
             <a href="#proyectos" class="btn-negro">Ver proyectos</a>
             <a href="#contactos" class="btn-transparente">Contáctame <i class="fas fa-arrow-down"></i></a>
-            
           </div>
         </div>
 
         <div class="portada-avatar">
-          <div class="foto-marco"><img src="img/avatar.jpeg" alt="Avatar Juan Mera" class="foto-imagen" /></div>
-
+          <div class="foto-marco">
+            <img src="img/avatar.jpeg" alt="Avatar Juan Mera" class="foto-imagen" />
+          </div>
         </div>
       </div>
-
     </section>
 
     <!-- SOBRE MÍ -->
-    <section id="sobre-mi" class="seccion">
+    <section id="sobre-mi" class="seccion bg-base">
       <div class="contenedor">
         <h2 class="texto-centrado">Sobre mí</h2>
         <article class="texto-izquierda">
-          <p class="sub-titulo">Hola, soy <strong class="texto-subrayado">Juan Mera.</strong></p>
-          <p class="salto-linea">
-            Soy Analista de Tecnologías de la información en la Facultad de Jurisprudencia de la Universidad Central del
-            Ecuador, con experiencia en la administración, soporte y gestión de plataformas institucionales.
+          <p class="sub-titulo">
+            Hola, soy <strong class="texto-subrayado">Juan Mera.</strong>
           </p>
           <p class="salto-linea">
-            Actualmente estudio Ingeniería en Sistemas Inteligentes en la Universidad <strong>Ecotec</strong>, integrando mi formación académica con la experiencia práctica para desarrollar soluciones orientadas a necesidades reales.
+            Soy Analista de Tecnologías de la información en la Facultad de
+            Jurisprudencia de la Universidad Central del Ecuador, con
+            experiencia en la administración, soporte y gestión de plataformas
+            institucionales.
+          </p>
+          <p class="salto-linea">
+            Actualmente estudio Ingeniería en Sistemas Inteligentes en la
+            Universidad <strong>Ecotec</strong>, integrando mi formación
+            académica con la experiencia práctica para desarrollar soluciones
+            orientadas a necesidades reales.
           </p>
 
           <p class="salto-linea">
-            Mi objetivo es crecer como desarrollador de software, combinando conocimientos de programación con experiencia en sistemas en producción para crear soluciones mantenibles, seguras y funcionales.
+            Mi objetivo es crecer como desarrollador de software, combinando
+            conocimientos de programación con experiencia en sistemas en
+            producción para crear soluciones mantenibles, seguras y
+            funcionales.
           </p>
         </article>
       </div>
@@ -81,38 +94,41 @@
             <i class="fas fa-desktop"></i>
             <h3>HTML &amp; CSS</h3>
             <p class="texto-muteado">
-              Construyo interfaces web semánticas modernas y responsivas con HTML5, CSS y JAVASCRIPT.
+              Construyo interfaces web semánticas modernas y responsivas con
+              HTML5, CSS y JAVASCRIPT.
             </p>
           </article>
           <article class="tarjeta">
             <i class="fas fa-cogs"></i>
             <h3>Programación</h3>
             <p class="texto-muteado">
-              Desarrollo aplicaciones full-stack con JavaScript, React y Node.js, aplicando principios SOLID y patrones
-              de diseño en proyectos reales de la universidad.
+              Desarrollo aplicaciones full-stack con JavaScript, React y
+              Node.js, aplicando principios SOLID y patrones de diseño en
+              proyectos reales de la universidad.
             </p>
           </article>
           <article class="tarjeta">
             <i class="fas fa-code-branch"></i>
-            <h3>GitHub </h3>
+            <h3>GitHub</h3>
             <p class="texto-muteado">
-              Gestiono el historial de mis proyectos con Git y GitHub, documentando el progreso mediante commits claros
-              y
-              organizados.
+              Gestiono el historial de mis proyectos con Git y GitHub,
+              documentando el progreso mediante commits claros y organizados.
             </p>
           </article>
           <article class="tarjeta">
             <i class="fas fa-chart-line"></i>
             <h3>Posicionamiento web (SEO)</h3>
             <p class="texto-muteado">
-              Optimizo sitios webs para motores de búsqueda y accesibilidad, mejorando su visibilidad y rendimiento.
+              Optimizo sitios webs para motores de búsqueda y accesibilidad,
+              mejorando su visibilidad y rendimiento.
             </p>
           </article>
           <article class="tarjeta">
             <i class="fas fa-users"></i>
             <h3>Trabajo en equipo</h3>
             <p class="texto-muteado">
-              Colaboro con docentes, estudiantes y otras áreas de TI para resolver problemas reales.
+              Colaboro con docentes, estudiantes y otras áreas de TI para
+              resolver problemas reales.
             </p>
           </article>
         </div>
@@ -120,47 +136,48 @@
     </section>
 
     <!-- PROYECTOS  -->
-    <section id="proyectos" class="seccion">
+    <section id="proyectos" class="seccion bg-base">
       <div class="contenedor">
         <h2 class="texto-centrado">Proyectos</h2>
-        <div class="tarjetas ">
-
+        <div class="tarjetas">
           <article class="tarjeta">
             <div class="tarjeta-imagen">
-              <img src="img/RAD.jpeg" alt="">
+              <img src="img/RAD.jpeg" alt="" />
             </div>
             <div class="tarjeta-descripcion bg-alterno">
               <h3>RAD v2</h3>
               <p class="texto-muteado">
-                Sistema de registro de actividades académicas, reconstruido desde cero aplicando principios SOLID y
-                Patrones Repository, Strategy, Factory y DTO en un backend en capas.
+                Sistema de registro de actividades académicas, reconstruido
+                desde cero aplicando principios SOLID y Patrones Repository,
+                Strategy, Factory y DTO en un backend en capas.
               </p>
             </div>
           </article>
 
           <article class="tarjeta">
             <div class="tarjeta-imagen">
-              <img src="img/GPS.jpg" alt="">
+              <img src="img/GPS.jpg" alt="" />
             </div>
             <div class="tarjeta-descripcion bg-alterno">
               <h3>Asistencia GPS</h3>
-              <p class="texto-muteado ">
-                Registro de asistencia en tiempo real con geolocalización (geofencing),autenticación JWT y actualización
-                vía
-                WebSocket para validar la presencia física del usuario.
+              <p class="texto-muteado">
+                Registro de asistencia en tiempo real con geolocalización
+                (geofencing),autenticación JWT y actualización vía WebSocket
+                para validar la presencia física del usuario.
               </p>
             </div>
           </article>
 
           <article class="tarjeta">
             <div class="tarjeta-imagen">
-              <img src="img/FUM.jpg" alt="">
+              <img src="img/FUM.jpg" alt="" />
             </div>
             <div class="tarjeta-descripcion bg-alterno">
               <h3>Gestión de Fumigación</h3>
               <p class="texto-muteado">
-                Aplicación para el control de productos químicos y costos de fumigación por invernadero, finca y tipo de
-                plaga, con reportes de análisis de costos por rango de fechas.
+                Aplicación para el control de productos químicos y costos de
+                fumigación por invernadero, finca y tipo de plaga, con
+                reportes de análisis de costos por rango de fechas.
               </p>
             </div>
           </article>
@@ -174,19 +191,25 @@
       <div class="contacto-cuadricula">
         <div class="contacto-info">
           <p class="salto-linea">
-            ¿Tienes un proyecto en mente sobre desarrollo de software e infraestructura de TI? Escríbeme y te respondo
-            lo antes posible.
+            ¿Tienes un proyecto en mente sobre desarrollo de software e
+            infraestructura de TI? Escríbeme y te respondo lo antes posible.
           </p>
-          <p class="contacto-linea"><strong>Dirección:<br> </strong>Quito-Ecuador</p> 
-          <p class="contacto-linea"><strong>Correo: <br></strong>jc.mera@ecotec.edu.ec</p>
-          <p class="contacto-linea"><strong>linkedin: <br></strong>juanmmera</p>
+          <p class="contacto-linea">
+            <strong>Dirección:<br /> </strong>Quito-Ecuador
+          </p>
+          <p class="contacto-linea">
+            <strong>Correo: <br /></strong>jc.mera@ecotec.edu.ec
+          </p>
+          <p class="contacto-linea">
+            <strong>linkedin: <br /></strong>juanmmera
+          </p>
         </div>
         <div class="contacto-formulario">
           <form action="#">
             <label for="nombre" class="texto-izquierda">Nombre:</label>
-            <input type="text" id="nombre">
+            <input type="text" id="nombre" />
             <label for="correo">Correo:</label>
-            <input type="email" id="correo">
+            <input type="email" id="correo" />
             <label for="mensaje">Mensaje:</label>
             <textarea id="mensaje"></textarea>
             <button class="btn-negro" type="submit">Enviar mensaje</button>
@@ -206,9 +229,10 @@
         <a href="https://github.com/juancmera/portafolio-Juan_Mera" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
-
-
   </footer>
+
+  <!-- JAVASCRIPT -->
+  <script src="js/script.js"></script>
 </body>
 
 </html>
