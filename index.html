@@ -88,7 +88,7 @@
     </section>
 
     <!-- HABILIDADES  -->
-    <section id="habilidades" class="seccion bg-alterno">
+    <section id="habilidades" class="seccion bg-alterno tarjetas">
       <div class="contenedor">
         <h2 class="texto-centrado">Habilidades</h2>
         <div class="tarjetas texto-centrado">
@@ -141,6 +141,20 @@
     <section id="proyectos" class="seccion bg-base">
       <div class="contenedor">
         <h2 class="texto-centrado">Proyectos</h2>
+
+        <div class="filtros-proyectos">
+          <button class="btn-filtro activo" data-filtro="todos">Todos</button>
+          <button class="btn-filtro activo" data-filtro="web">Web</button>
+          <button class="btn-filtro activo" data-filtro="movil">Móvil</button>
+        </div>
+
+        <div class="tarjetas" id="contenedor-proyectos"></div>
+      </div>
+    </section>
+
+    <!--<section id="proyectos" class="seccion bg-base">
+      <div class="contenedor">
+        <h2 class="texto-centrado">Proyectos</h2>
         <div class="tarjetas">
           <article class="tarjeta">
             <div class="tarjeta-imagen">
@@ -185,7 +199,7 @@
           </article>
         </div>
       </div>
-    </section>
+    </section>-->
 
     <!-- CONTACTOS  -->
     <section id="contactos" class="seccion bg-primario">
@@ -211,7 +225,7 @@
             <label for="nombre" class="texto-izquierda">Nombre:</label>
             <input type="text" id="nombre" placeholder="Ingrese su nombre" />
             <label for="correo">Correo:</label>
-            <input type="email" id="correo" placeholder="Ingrese su email"/>
+            <input type="email" id="correo" placeholder="Ingrese su email" />
             <label for="mensaje">Mensaje:</label>
             <textarea id="mensaje" placeholder="Ingrese un mensaje"></textarea>
 

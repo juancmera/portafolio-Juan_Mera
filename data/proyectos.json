@@ -1,0 +1,23 @@
+[
+  {
+    "nombre": "RAD v2",
+    "descripcion": "Sistema de registro de actividades académicas, reconstruido desde cero aplicando principios SOLID y Patrones Repository, Strategy, Factory y DTO en un backend en capas",
+    "imagen": "img/RAD.jpeg",
+    "categoria": "web",
+    "enlace": "https://github.com/juancmera/rad-blue"
+  },
+  {
+    "nombre": "Asistencia GPS",
+    "descripcion": "Registro de asistencia en tiempo real con geolocalización (geofencing),autenticación JWT y actualización vía WebSocket para validar la presencia física del usuario.",
+    "imagen": "img/GPS.jpg",
+    "categoria": "movil",
+    "enlace": "#"
+  },
+  {
+    "nombre": "Gestión de Fumigación",
+    "descripcion": "Aplicación para el control de productos químicos y costos de fumigación por invernadero, finca y tipo de plaga, con reportes de análisis de costos por rango de fechas. y análisis con PostgreSQL.",
+    "imagen": "img/FUM.jpg",
+    "categoria": "web",
+    "enlace": "#"
+  }
+]
