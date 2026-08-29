@@ -39,7 +39,7 @@
       <div class="portada-cuadricula">
         <div class="portada-texto">
           <p id="saludo-visitante" class="saludo-visitante"></p>
-          <h1>Soy Desarrollador Web y Analista TI</h1>
+          <h1>Soy <span class="soy-yo">Juan Mera</span>, Desarrollador Web y Analista TI</h1>
           <!-- <h1>Hola, soy Desarrollo Web y Analista TI</h1>
           <h2 class="titulo">Juan Mera</h2>-->
           <div class="espacio-enlaces">
@@ -88,11 +88,11 @@
     </section>
 
     <!-- HABILIDADES  -->
-    <section id="habilidades" class="seccion bg-alterno tarjetas">
+    <section id="habilidades" class="seccion bg-alterno">
       <div class="contenedor">
         <h2 class="texto-centrado">Habilidades</h2>
-        <div class="tarjetas texto-centrado">
-          <article class="tarjeta">
+        <div class="tarjetas-habilidad texto-centrado">
+          <article class="tarjeta-habilidad">
             <i class="fas fa-desktop"></i>
             <h3>HTML &amp; CSS</h3>
             <p class="texto-muteado">
@@ -100,7 +100,7 @@
               HTML5, CSS y JAVASCRIPT.
             </p>
           </article>
-          <article class="tarjeta">
+          <article class="tarjeta-habilidad">
             <i class="fas fa-cogs"></i>
             <h3>Programación</h3>
             <p class="texto-muteado">
@@ -109,7 +109,7 @@
               proyectos reales de la universidad.
             </p>
           </article>
-          <article class="tarjeta">
+          <article class="tarjeta-habilidad">
             <i class="fas fa-code-branch"></i>
             <h3>GitHub</h3>
             <p class="texto-muteado">
@@ -117,7 +117,7 @@
               documentando el progreso mediante commits claros y organizados.
             </p>
           </article>
-          <article class="tarjeta">
+          <article class="tarjeta-habilidad">
             <i class="fas fa-chart-line"></i>
             <h3>Posicionamiento web (SEO)</h3>
             <p class="texto-muteado">
@@ -125,7 +125,7 @@
               mejorando su visibilidad y rendimiento.
             </p>
           </article>
-          <article class="tarjeta">
+          <article class="tarjeta-habilidad">
             <i class="fas fa-users"></i>
             <h3>Trabajo en equipo</h3>
             <p class="texto-muteado">
@@ -144,95 +144,48 @@
 
         <div class="filtros-proyectos">
           <button class="btn-filtro activo" data-filtro="todos">Todos</button>
-          <button class="btn-filtro activo" data-filtro="web">Web</button>
-          <button class="btn-filtro activo" data-filtro="movil">Móvil</button>
+          <button class="btn-filtro" data-filtro="web">Web</button>
+          <button class="btn-filtro" data-filtro="movil">Móvil</button>
         </div>
 
         <div class="tarjetas" id="contenedor-proyectos"></div>
       </div>
     </section>
 
-    <!--<section id="proyectos" class="seccion bg-base">
-      <div class="contenedor">
-        <h2 class="texto-centrado">Proyectos</h2>
-        <div class="tarjetas">
-          <article class="tarjeta">
-            <div class="tarjeta-imagen">
-              <img src="img/RAD.jpeg" alt="" />
-            </div>
-            <div class="tarjeta-descripcion bg-alterno">
-              <h3>RAD v2</h3>
-              <p class="texto-muteado">
-                Sistema de registro de actividades académicas, reconstruido
-                desde cero aplicando principios SOLID y Patrones Repository,
-                Strategy, Factory y DTO en un backend en capas.
-              </p>
-            </div>
-          </article>
-
-          <article class="tarjeta">
-            <div class="tarjeta-imagen">
-              <img src="img/GPS.jpg" alt="" />
-            </div>
-            <div class="tarjeta-descripcion bg-alterno">
-              <h3>Asistencia GPS</h3>
-              <p class="texto-muteado">
-                Registro de asistencia en tiempo real con geolocalización
-                (geofencing),autenticación JWT y actualización vía WebSocket
-                para validar la presencia física del usuario.
-              </p>
-            </div>
-          </article>
-
-          <article class="tarjeta">
-            <div class="tarjeta-imagen">
-              <img src="img/FUM.jpg" alt="" />
-            </div>
-            <div class="tarjeta-descripcion bg-alterno">
-              <h3>Gestión de Fumigación</h3>
-              <p class="texto-muteado">
-                Aplicación para el control de productos químicos y costos de
-                fumigación por invernadero, finca y tipo de plaga, con
-                reportes de análisis de costos por rango de fechas.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>-->
-
     <!-- CONTACTOS  -->
     <section id="contactos" class="seccion bg-primario">
-      <h2 class="texto-centrado">Contactos</h2>
-      <div class="contacto-cuadricula">
-        <div class="contacto-info">
-          <p class="salto-linea">
-            ¿Tienes un proyecto en mente sobre desarrollo de software e
-            infraestructura de TI? Escríbeme y te respondo lo antes posible.
-          </p>
-          <p class="contacto-linea">
-            <strong>Dirección:<br /> </strong>Quito-Ecuador
-          </p>
-          <p class="contacto-linea">
-            <strong>Correo: <br /></strong>jc.mera@ecotec.edu.ec
-          </p>
-          <p class="contacto-linea">
-            <strong>linkedin: <br /></strong>juanmmera
-          </p>
-        </div>
-        <div class="contacto-formulario">
-          <form id="formulario-contacto" action="#" novalidate>
-            <label for="nombre" class="texto-izquierda">Nombre:</label>
-            <input type="text" id="nombre" placeholder="Ingrese su nombre" />
-            <label for="correo">Correo:</label>
-            <input type="email" id="correo" placeholder="Ingrese su email" />
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" placeholder="Ingrese un mensaje"></textarea>
+      <div class="contenedor">
+        <h2 class="texto-centrado">Contactos</h2>
+        <div class="contacto-cuadricula">
+          <div class="contacto-info">
+            <p class="salto-linea">
+              ¿Tienes un proyecto en mente sobre desarrollo de software e
+              infraestructura de TI? Escríbeme y te respondo lo antes posible.
+            </p>
+            <p class="contacto-linea">
+              <strong >Dirección:<br /> </strong>Quito-Ecuador
+            </p>
+            <p class="contacto-linea">
+              <strong>Correo: <br /></strong>jc.mera@ecotec.edu.ec
+            </p>
+            <p class="contacto-linea">
+              <strong>linkedin: <br /></strong>juanmmera
+            </p>
+          </div>
+          <div class="contacto-formulario">
+            <form id="formulario-contacto" action="#" novalidate>
+              <label for="nombre" class="texto-izquierda">Nombre:</label>
+              <input type="text" id="nombre" placeholder="Ingrese su nombre" />
+              <label for="correo">Correo:</label>
+              <input type="email" id="correo" placeholder="Ingrese su email" />
+              <label for="mensaje">Mensaje:</label>
+              <textarea id="mensaje" placeholder="Ingrese un mensaje"></textarea>
 
-            <p id="mensaje-formulario" class="mensaje-formulario"></p>
+              <p id="mensaje-formulario" class="mensaje-formulario"></p>
 
-            <button class="btn-negro" type="submit">Enviar mensaje</button>
-          </form>
+              <button class="btn-negro" type="submit">Enviar mensaje</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -249,6 +202,24 @@
       </div>
     </div>
   </footer>
+
+  <!-- MODAL -->
+  <div id="modal-proyecto" class="modal">
+    <div class="modal-contenido">
+      <button id="modal-cerrar" class="modal-cerrar" type="button" aria-label="Cerra">&times;</button>
+      <img id="modal-imagen" class="modal-imagen" src="" alt="">
+      <div class="modal-info">
+        <h3 id="modal-titulo"></h3>
+        <span id="modal-categoria" class="modal-categoria"></span>
+        <p id="modal-descripcion" class="modal-descripcion"></p>
+        <span id="modal-tecnologias" class="chip-tecnologia"></span>
+        <a id="modal-enlace" href="#" target="_blank" rel="noopener">
+          <i class="fas fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
 
   <!-- JAVASCRIPT -->
   <script src="js/script.js"></script>

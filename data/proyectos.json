@@ -1,23 +1,29 @@
 [
   {
+    "id": "rad_1",
     "nombre": "RAD v2",
     "descripcion": "Sistema de registro de actividades académicas, reconstruido desde cero aplicando principios SOLID y Patrones Repository, Strategy, Factory y DTO en un backend en capas",
     "imagen": "img/RAD.jpeg",
     "categoria": "web",
-    "enlace": "https://github.com/juancmera/rad-blue"
+    "tecnologias": ["React", "Node.js", "Express", "MySQL"],
+    "enlace": "https://github.com/juancmera/"
   },
   {
+    "id": "gps_2",
     "nombre": "Asistencia GPS",
     "descripcion": "Registro de asistencia en tiempo real con geolocalización (geofencing),autenticación JWT y actualización vía WebSocket para validar la presencia física del usuario.",
     "imagen": "img/GPS.jpg",
     "categoria": "movil",
-    "enlace": "#"
+    "tecnologias": ["React Native", "Node.js", "Express", "MySQL"],
+    "enlace": "https://github.com/juancmera/"
   },
   {
+    "id": "fum_3",
     "nombre": "Gestión de Fumigación",
     "descripcion": "Aplicación para el control de productos químicos y costos de fumigación por invernadero, finca y tipo de plaga, con reportes de análisis de costos por rango de fechas. y análisis con PostgreSQL.",
     "imagen": "img/FUM.jpg",
     "categoria": "web",
-    "enlace": "#"
+    "tecnologias": ["React", "Node.js", "Express", "PostgreSQL"],
+    "enlace": "https://github.com/juancmera/"
   }
 ]

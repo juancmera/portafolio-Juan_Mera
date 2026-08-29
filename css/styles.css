@@ -15,6 +15,7 @@
   --color-superficie: #22252b;
   --color-texto: #e8e8e6;
   --color-muteado: #a3a39e;
+  --color-muteado-o: #b7b7b2;
   --color-alterno-oscuro: #1f2024;
 
   --color-error: #c0392b;
@@ -30,7 +31,7 @@
 }
 
 html {
- scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -84,7 +85,7 @@ ul {
 }
 
 .ul-menu a.activo {
-  color: var(--color-gris);/*var(--color-secundario);*/
+  color: var(--color-gris); /*var(--color-secundario);*/
   background-color: transparent;
   font-weight: bolder;
 }
@@ -177,7 +178,6 @@ a {
 }
 
 .portada-avatar {
-
   display: flex;
   justify-content: center;
   flex: 0 1 calc(35% - 24px);
@@ -187,7 +187,7 @@ a {
   width: 430px;
   height: 430px;
   border-radius: 50%;
-  background: #e9e7e7;
+  background: var(--color-alterno);
   padding: 15px;
   box-shadow: 0 30px 60px rgba(23, 24, 26, 0.25);
 }
@@ -215,6 +215,13 @@ a {
   padding-bottom: 1rem;
 }
 
+.soy-yo {
+  font-size: 600;
+  font-family: "Poppins", sans-serif;
+  font-size: calc(1.325rem + 2.5vw);
+  font-weight: bold;
+}
+
 .texto-centrado {
   text-align: center;
 }
@@ -238,9 +245,9 @@ a {
 }
 
 .saludo-visitante {
-  font-size: 1.8rem;
-  font-weight:600 ;
-  display: none;      /* oculto hasta que JS confirme que hay nombre */
+  font-size: 2.1rem;
+  font-weight: 600;
+  display: none; /* oculto hasta que JS confirme que hay nombre */
 }
 
 .saludo-visitante.visible {
@@ -252,7 +259,7 @@ h1 {
   font-size: calc(1.425rem + 2.1vw);
   font-weight: 300;
   text-transform: uppercase;
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
 h2 {
@@ -276,30 +283,60 @@ p {
 }
 
 /*Tarjetas*/
-.tarjetas {
+.tarjetas-habilidad {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   /*muestra en lineas*/
 }
 
-.tarjeta {
+.tarjeta-habilidad {
   padding: 1rem;
   flex: 1 1 350px;
   margin-bottom: 0.5rem;
 }
 
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
+  gap: 1rem;
+  justify-content: center;
+}
+
+.tarjeta {
+  padding: 0.3rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+.tarjeta:hover {
+  opacity: 0.85;
+}
+
+.tarjetas-imagen {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
 .tarjeta-imagen {
-  height: 160px;
+  aspect-ratio: 16 / 10; /* todas las imágenes con la misma proporción */
   overflow: hidden;
-  border: 3px solid var(--color-alterno);
+  border: 1px solid var(--color-alterno);
 }
 
 .tarjeta-imagen img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* llena el espacio sin deformar */
+  object-position: top; /* muestra la parte superior de la captura */
   display: block;
+  transition: transform 0.5s ease;
+}
+.tarjeta-imagen img:hover {
+  transform: scale(1.05);
 }
 
 .tarjeta-descripcion {
@@ -312,6 +349,11 @@ p {
 
 .tarjeta-descripcion p {
   color: var(--color-texto-suave);
+  font-size: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /*muestra 2 lineas en descrip.*/
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /*Iconos*/
@@ -327,35 +369,7 @@ p {
 /* Filtros proyectos*/
 .filtros-proyectos {
   display: flex;
-  justify-content: center; 
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
-}
-
-.btn-filtro {
-  background: transparent;
-  border: 1px solid var(--color-error);
-  color: inherit;
-  padding: 0.4rem 1.2rem;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.btn-filtro:hover,
-.btn-filtro.activo {
-  background-color: var(--color-primario);
-  color: var(--color-secundario);
-  border-color: var(--color-primario);
-}
-
-.tarjeta.oculta {
-  display: none;
-}.filtros-proyectos {
-  display: flex;
-  justify-content: center; /* alineado con tu h2 centrado */
+  justify-content: center;
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-bottom: 2rem;
@@ -369,7 +383,9 @@ p {
   border-radius: 20px;
   cursor: pointer;
   font-size: 1.1rem;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 .btn-filtro:hover,
@@ -423,8 +439,8 @@ p {
 }
 
 .mensaje-formulario {
-  font-size: .89rem;
-  padding: .5rem 0;
+  font-size: 0.89rem;
+  padding: 0.5rem 0;
   display: none;
 }
 .mensaje-formulario.error {
@@ -434,15 +450,6 @@ p {
 .mensaje-formulario.exito {
   display: block;
   color: var(--color-exito);
-}
-
-
-body.modo-oscuro .mensaje-formulario.error {
-  color:var(--color-error-o);
-}
-
-body.modo-oscuro .mensaje-formulario.exito {
-  color: var(--color-exito-o);
 }
 
 .btn-negro {
@@ -483,7 +490,7 @@ body.modo-oscuro .mensaje-formulario.exito {
 
 .btn-transparente .fas {
   color: var(--color-secundario);
-  font-size: .8rem;
+  font-size: 0.8rem;
   margin-left: 6px;
   padding: 0;
 }
@@ -503,7 +510,6 @@ label {
   display: inline-block;
   margin-bottom: 0.5rem;
   cursor: default;
-
 }
 
 input,
@@ -572,7 +578,6 @@ textarea:focus {
   text-decoration: none;
 }
 
-
 /*Modo oscuro*/
 .btn-modo-oscuro {
   background: transparent;
@@ -596,8 +601,10 @@ textarea:focus {
 
 body.modo-oscuro {
   background-color: var(--color-secundario);
-  color: #e8e8e6;
-  transition: background-color 0.3s, color 0.3s;
+  color: var(--color-base);
+  transition:
+  background-color 0.3s,
+  color 0.3s;
 }
 
 body.modo-oscuro nav {
@@ -605,7 +612,7 @@ body.modo-oscuro nav {
 }
 
 body.modo-oscuro .ul-menu a.activo {
-  color: var(--color-gris);/*var(--color-secundario);*/
+  color: var(--color-gris); /*var(--color-secundario);*/
   background-color: transparent;
   font-weight: bolder;
 }
@@ -652,24 +659,24 @@ body.modo-oscuro .btn-transparente {
 body.modo-oscuro h1,
 body.modo-oscuro h2,
 body.modo-oscuro h3 {
-  color: #f5f5f5;
+  color: var(--color-base);
 }
 
 body.modo-oscuro .texto-muteado {
-  color: #b7b7b2;
+  color: var(--color-muteado-o);
 }
 
 body.modo-oscuro .contacto-info p {
-  color: #d8d8d5;
+  color: var(--color-muteado-o);
 }
 
 body.modo-oscuro .tarjeta {
-  background-color: #1f2024;
+  background-color: var(--color-alterno-oscuro);
   transition: background-color 1.3s;
 }
 
 body.modo-oscuro label {
-  color:var(--color-muteado);
+  color: var(--color-muteado);
 }
 
 body.modo-oscuro .btn-modo-oscuro {
@@ -678,11 +685,121 @@ body.modo-oscuro .btn-modo-oscuro {
 
 body.modo-oscuro input,
 body.modo-oscuro textarea {
-  color:var(--color-muteado);
-  border-bottom-color: rgba(255, 255, 255, .25);
+  color: var(--color-muteado);
+  border-bottom-color: rgba(255, 255, 255, 0.25);
 }
 
+body.modo-oscuro .mensaje-formulario.error {
+  color: var(--color-error-o);
+}
 
+body.modo-oscuro .mensaje-formulario.exito {
+  color: var(--color-exito-o);
+}
+
+/* Modo oscuro del modal */
+body.modo-oscuro .modal-contenido {
+  background-color: var(--color-alterno-oscuro);
+}
+body.modo-oscuro .tarjeta-imagen {
+  border: 1px solid var(--color-alterno-oscuro);
+}
+
+/*Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s;
+}
+.modal.abierto {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-contenido {
+  background-color: var(--color-blanco);
+  max-width: 640px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  transform: scale(0.85);
+  transition: transform 0.3s ease;
+}
+.modal.abierto .modal-contenido {
+  transform: scale(1);
+}
+.modal-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--color-fondo);
+  color: var(--color-blanco);
+  font-size: 1.3rem;
+  cursor: pointer;
+  z-index: 1;
+  transition: background-color 0.3s;
+}
+.modal-cerrar:hover {
+  background-color: var(--color-primario);
+  color: var(--negro);
+}
+.modal-imagen {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+.modal-info {
+  font-size: 1rem;
+  padding: 1.5rem;
+}
+.modal-categoria {
+  display: inline-block;
+  background-color: var(--color-primario);
+  color: var(--color-fondo);
+  font-size: 0.85rem;
+  padding: 0.2rem 0.9rem;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+.modal-descripcion {
+  font-size: 1rem;
+}
+
+.chip-tecnologia {
+  display: inline-block;
+  border: 1px solid var(--color-primario);
+  border-radius: 20px;
+  padding: 0.15rem 0.7rem;
+  font-size: 0.7rem;
+  margin: 0.2rem;
+}
+.modal-info i {
+  color: var(--color-primario);
+  font-size: 1rem;
+}
+
+#modal-tecnologias {
+  border: none;
+}
+#proyectos .tarjeta-imagen img {
+  transition: transform 0.35s ease;
+}
 
 /*MediaQuery*/
 @media (max-width: 1524px) {
@@ -733,6 +850,9 @@ body.modo-oscuro textarea {
 
   .contacto-formulario {
     flex: 0 1 calc(35% - 24px);
+  }
+  .tarjetas {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
   }
 }
 

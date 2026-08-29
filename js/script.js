@@ -1,4 +1,4 @@
-/* Simulación consumo API */
+/* Const simulación consumo API */
 const urlProyectos = "data/proyectos.json";
 const contenedorProyectos = document.getElementById("contenedor-proyectos");
 
@@ -129,7 +129,7 @@ function guardarMensaje(nombre, correo, mensaje) {
 
   localStorage.setItem("mensajeContacto", JSON.stringify(mensajeGuardados));
   localStorage.setItem("nombreVisitante", nombre);
-  console.log("Nombre form: ", nombre);
+
 }
 
 /*Usuario visitante */
@@ -145,16 +145,22 @@ function usuarioVisitante() {
 
 /* Simulación consumo API */
 async function obtenerProyectos() {
-  const respuesta = await fetch(urlProyectos);
-  const proyectos = await respuesta.json();
+  let proyectos;
+  try {
+    const respuesta = await fetch(urlProyectos);
+    proyectos = await respuesta.json();
+  } catch (error) {
+    console.warn("No se pudo caragr el JSON, usadndo datos locales", error);
+    proyectos = proyectosRespaldo;
+  }
 
   proyectos.forEach(function (proyecto) {
     // Tarjeta (article)
     const tarjeta = document.createElement("article");
     tarjeta.classList.add("tarjeta");
     tarjeta.dataset.categoria = proyecto.categoria;
-    console.log(proyecto.nombre, "→", proyecto.categoria);
-    // Envoltorio de la imagen
+
+    // div de la imagen
     const tarjetaImagen = document.createElement("div");
     tarjetaImagen.classList.add("tarjeta-imagen");
 
@@ -164,7 +170,7 @@ async function obtenerProyectos() {
 
     tarjetaImagen.appendChild(imagen);
 
-    // Envoltorio de la descripción
+    // div de la descripción
     const tarjetaDescripcion = document.createElement("div");
     tarjetaDescripcion.classList.add("tarjeta-descripcion", "bg-alterno");
 
@@ -181,6 +187,11 @@ async function obtenerProyectos() {
     // Armar la tarjeta completa
     tarjeta.appendChild(tarjetaImagen);
     tarjeta.appendChild(tarjetaDescripcion);
+
+    tarjeta.addEventListener("click", function () {
+      modalProyectos(proyecto);
+    });
+
     contenedorProyectos.appendChild(tarjeta);
   });
   configurarFiltrosProyectos();
@@ -219,6 +230,72 @@ function configurarFiltrosProyectos() {
   aplicarFiltro(filtroGuardado);
 }
 
+/* Modal*/
+function modalProyectos(proyecto) {
+  document.getElementById("modal-imagen").src = proyecto.imagen;
+  document.getElementById("modal-imagen").alt = "Captura de " + proyecto.nombre;
+  document.getElementById("modal-titulo").textContent = proyecto.nombre;
+  document.getElementById("modal-categoria").textContent = proyecto.categoria;
+  document.getElementById("modal-descripcion").textContent = proyecto.descripcion;
+
+  const contenedorTec = document.getElementById("modal-tecnologias");
+  contenedorTec.innerHTML = ""; // limpia las del proyecto anterior
+
+  proyecto.tecnologias.forEach(function (tec) {
+    const chip = document.createElement("span");
+    chip.classList.add("chip-tecnologia");
+    chip.textContent = tec;
+    contenedorTec.appendChild(chip);
+  });
+
+  const enlace = document.getElementById("modal-enlace");
+
+  if (proyecto.enlace && proyecto.enlace !== "#") {
+    enlace.href = proyecto.enlace;
+    enlace.style.display = "index-block";
+  } else {
+    enlace.style.display = "none";
+  }
+
+  document.getElementById("modal-proyecto").classList.add("abierto");
+  document.body.style.overflow = "hidden"; //evita scroll de fondo
+}
+function cerrarModal() {
+  document.getElementById("modal-proyecto").classList.remove("abierto");
+  document.body.style.overflow = "";
+}
+
+/* Proyectos respaldo, posible falla data JSON */
+const proyectosRespaldo = [
+  {
+    id: "rad_1",
+    nombre: "RAD v2",
+    imagen: "img/RAD.jpeg",
+    descripcion: "Sistema de registro de actividades académicas...",
+    tecnologias: ["React", "Node.js", "Express", "MySQL"],
+    categoria: "web",
+    enlace: "https://github.com/juancmera/"
+  },
+  {
+    id: "gps_2",
+    nombre: "Asistencia GPS",
+    imagen: "img/GPS.jpg",
+    descripcion: "Registro de asistencia en tiempo real con geolocalización (geofencing),autenticación JWT y actualización vía WebSocket para validar la presencia física del usuario.",
+    tecnologias: ["React native", "Node.js", "Express", "MySQL"],
+    categoria: "movil",
+    enlace: "https://github.com/juancmera/"
+  },
+  {
+    id: "fum_3",
+    nombre: "Gestión de Fumigación",
+    imagen: "img/FUM.jpg",
+    descripcion: "Aplicación para el control de productos químicos y costos de fumigación por invernadero, finca y tipo de plaga, con reportes de análisis de costos por rango de fechas. y análisis con PostgreSQL.",
+    tecnologias: ["React", "Node.js", "Express", "PostgreSQL"],
+    categoria: "web",
+    enlace: "https://github.com/juancmera/"
+  },
+];
+
 // INICIO — se ejecuta cuando el HTML ya está listo
 document.addEventListener("DOMContentLoaded", () => {
   inicializarModoOscuro();
@@ -228,10 +305,19 @@ document.addEventListener("DOMContentLoaded", () => {
   obtenerProyectos();
   configurarFiltrosProyectos();
 
+  // Modo oscuro
   const botonModoOscuro = document.getElementById("btn-modo-oscuro");
   botonModoOscuro.addEventListener("click", alternarModoOscuro);
 
   // Formulario de contacto
   const formularioContacto = document.getElementById("formulario-contacto");
   formularioContacto.addEventListener("submit", validarFormulario);
+
+  //Modal
+  document.getElementById("modal-cerrar").addEventListener("click", cerrarModal);
+  document.getElementById("modal-proyecto").addEventListener("click", function (evento) {
+    if (evento.key === "Escape") {
+      cerrarModal();
+    }
+  });
 });
